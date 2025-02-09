@@ -1,0 +1,2 @@
+export const supaURL = 'https://kujoxeoqawiaizcqltis.supabase.co';
+export const anonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1am94ZW9xYXdpYWl6Y3FsdGlzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkwNjA5MzAsImV4cCI6MjA1NDYzNjkzMH0.JGHwWoIJeFGRbru31Kd-Hz15k4fr09plyxw4iRM1DP8';
