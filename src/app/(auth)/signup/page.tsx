@@ -1,0 +1,117 @@
+import { useState } from 'react';
+import { View, Text, StyleSheet, TextInput, Pressable, ScrollView } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { router } from 'expo-router';
+
+import Logo from '../../../../components/Logo';
+import colors from '@/constants/colors';
+
+export default function Signup() {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  function handleSignUp(){
+    return(
+      console.log(name, email, password)
+    )
+  }
+
+  return (
+    <SafeAreaView style={{flex:1, backgroundColor: colors.gray}}>
+      <ScrollView contentContainerStyle={{flex: 1}}>
+        <View style={styles.container}>
+       
+          <Logo/>
+
+          <View style={styles.form}>
+            <View>
+              <Text style={styles.label}>Nome</Text>
+              <TextInput
+                placeholder='Digite seu nome'
+                style={styles.input}
+                value={name}
+                onChangeText={setName}
+              />
+            </View>
+
+            <View>
+              <Text style={styles.label}>Email</Text>
+              <TextInput
+                placeholder='Digite seu e-mail'
+                style={styles.input}
+                value={email}
+                onChangeText={setEmail}
+              />
+            </View>
+        
+            <View>
+              <Text style={styles.label}>Senha</Text>
+              <TextInput
+                placeholder='Digite sua senha'
+                style={styles.input}
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry
+              />
+            </View>
+          </View>
+
+          <Pressable style={styles.button} onPress={handleSignUp}>
+            <Text style={styles.textButton}>Cadastrar</Text>
+          </Pressable>
+          
+          <Text onPress={() => router.back()} style={styles.text}>Acesse sua conta</Text>
+        
+        </View>   
+      </ScrollView>     
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    backgroundColor: colors.gray,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  form:{
+    marginTop: 28,
+    width: '90%',
+  },
+  label:{
+    color: colors.white,
+    marginBottom: 10,
+    fontSize: 16
+  },
+  input:{
+    width: '100%',
+    height: 45,
+    backgroundColor: colors.white,
+    borderRadius: 6,
+    marginBottom: 12,
+    padding: 10,
+    fontSize: 16
+  },
+  button:{
+    width: '90%',
+    height: 45,
+    marginTop: 12,
+    backgroundColor: colors.green,
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  textButton:{
+    color: colors.white,
+    fontSize: 22
+  },
+  text:{
+    color: colors.white,
+    marginTop: 8,
+    fontSize: 16
+  }
+})
