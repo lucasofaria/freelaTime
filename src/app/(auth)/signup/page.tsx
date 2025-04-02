@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Pressable, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Pressable, ScrollView, Alert } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 
 import Logo from '../../../../components/Logo';
 import colors from '@/constants/colors';
+import { supabase } from '@/src/lib/supabase';
 
 export default function Signup() {
 
@@ -13,10 +14,29 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  function handleSignUp(){
-    return(
-      console.log(name, email, password)
-    )
+  async function handleSignUp(){
+    setLoading(true);
+
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+      options:{
+        data: {
+          name: name
+        }
+      }
+    })
+
+    if(error){
+      Alert.alert('Error', error.message)
+      setLoading(false)
+      return;
+    }
+
+    Alert.alert('Cadastro realizado com sucesso!')
+    setLoading(false);
+    router.replace('/')
+
   }
 
   return (
@@ -60,7 +80,9 @@ export default function Signup() {
           </View>
 
           <Pressable style={styles.button} onPress={handleSignUp}>
-            <Text style={styles.textButton}>Cadastrar</Text>
+            <Text style={styles.textButton}>
+              {loading ? 'Cadastrando...' : 'Cadastrar'}
+            </Text>
           </Pressable>
           
           <Text onPress={() => router.back()} style={styles.text}>Acesse sua conta</Text>

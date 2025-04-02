@@ -2,7 +2,7 @@ import { AppState } from 'react-native'
 import 'react-native-url-polyfill/auto'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { createClient } from '@supabase/supabase-js'
-import { anonKey, supaURL } from '@/constants/supaBase'
+import { anonKey, supaURL } from '@/constants/supabase';
 
 const supabaseUrl = supaURL;
 const supabaseAnonKey = anonKey;
