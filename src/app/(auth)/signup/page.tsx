@@ -48,9 +48,8 @@ export default function Signup() {
 
           <View style={styles.form}>
             <View>
-              <Text style={styles.label}>Nome</Text>
               <TextInput
-                placeholder='Digite seu nome'
+                placeholder='Nome completo'
                 style={styles.input}
                 value={name}
                 onChangeText={setName}
@@ -58,9 +57,8 @@ export default function Signup() {
             </View>
 
             <View>
-              <Text style={styles.label}>Email</Text>
               <TextInput
-                placeholder='Digite seu e-mail'
+                placeholder='E-mail'
                 style={styles.input}
                 value={email}
                 onChangeText={setEmail}
@@ -68,9 +66,8 @@ export default function Signup() {
             </View>
         
             <View>
-              <Text style={styles.label}>Senha</Text>
               <TextInput
-                placeholder='Digite sua senha'
+                placeholder='Senha'
                 style={styles.input}
                 value={password}
                 onChangeText={setPassword}

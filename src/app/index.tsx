@@ -37,9 +37,8 @@ export default function Login() {
 
       <View style={styles.areaInput}>
         <View>
-          <Text style={styles.label}>Email</Text>
           <TextInput
-            placeholder='Digite seu e-mail'
+            placeholder='E-mail'
             style={styles.input}
             value={email}
             onChangeText={setEmail}
@@ -47,9 +46,8 @@ export default function Login() {
         </View>
 
         <View>
-          <Text style={styles.label}>Senha</Text>
           <TextInput
-            placeholder='Digite sua senha'
+            placeholder='Senha'
             style={styles.input}
             secureTextEntry
             value={password}
@@ -80,7 +78,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   areaInput:{
-    marginTop: 28,
+    marginTop: 60,
     width: '80%'
   },
   label:{
