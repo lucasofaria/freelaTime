@@ -1,4 +1,4 @@
-import { Stack } from 'expo-router';
+import { Stack, Tabs } from 'expo-router';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
 import { useEffect } from 'react';
 import { supabase } from '../lib/supabase';
@@ -39,11 +39,6 @@ function MainLayout(){
       />
 
       <Stack.Screen
-        name="(panel)/profile/page"
-        options={{ headerShown: false }}
-      />
-
-      <Stack.Screen
         name="(panel)/project/page"
         options={{ headerShown: false }}
       />
@@ -53,13 +48,8 @@ function MainLayout(){
         options={{ headerShown: false }}
       />
 
-      <Stack.Screen
-        name="(panel)/projectsUser/page"
-        options={{ headerShown: false }}
-      />
-
-      <Stack.Screen
-        name="(panel)/search/page"
+      <Stack.Screen 
+        name="(panel)/(tabs)"
         options={{ headerShown: false }}
       />
     </Stack>

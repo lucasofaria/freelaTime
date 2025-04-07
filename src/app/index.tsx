@@ -26,7 +26,7 @@ export default function Login() {
     }
 
     setLoading(false)
-    router.replace('/(panel)/home/page')
+    router.replace('/(panel)/(tabs)/home/page');
 
   }
 
@@ -39,6 +39,7 @@ export default function Login() {
         <View>
           <TextInput
             placeholder='E-mail'
+            placeholderTextColor={colors.gray}
             style={styles.input}
             value={email}
             onChangeText={setEmail}
@@ -48,6 +49,7 @@ export default function Login() {
         <View>
           <TextInput
             placeholder='Senha'
+            placeholderTextColor={colors.gray}
             style={styles.input}
             secureTextEntry
             value={password}

@@ -4,12 +4,13 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import {Picker} from '@react-native-picker/picker';
 import colors from '@/constants/colors';
 import Header from '@/components/Header'
+import { router } from 'expo-router'; 
 
 export default function Home() {
-  const [selectedProject, setSelectedProject] = useState('');
+  const [selectedProject, setSelectedProject] = useState(null);
 
   function startCronometro(){
-    Alert.alert('Iniciar cronômetro');
+    Alert.alert('Cronometro iniciado');
   }
 
   return (
@@ -24,8 +25,7 @@ export default function Home() {
             setSelectedProject(itemValue)
           }>
 
-          <Picker.Item label="Selecione um projeto" value="" />
-          <Picker.Item label="Project 1" value="project1" />        
+          <Picker.Item label="Selecione um projeto" value="" />    
         
         </Picker>
       </View>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '90%',
     height: 45,
-    marginTop: 15,
+    marginTop: 20,
     borderWidth: 1,
     borderColor: '#6C757D',
     borderRadius: 6,

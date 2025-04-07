@@ -1,12 +1,10 @@
 import { SafeAreaView, Text, StyleSheet } from 'react-native';
-import Header from '@/components/Header';
 
 export default function Profile() {
   return (
     <SafeAreaView style={styles.containe}>
-      <Header/>
       <Text>
-        Pagina do perfil
+        Pagina de perfil
       </Text>
     </SafeAreaView>
   );
