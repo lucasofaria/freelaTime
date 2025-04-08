@@ -1,4 +1,4 @@
-import { Stack, Tabs } from 'expo-router';
+import { Stack, router } from 'expo-router';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
 import { useEffect } from 'react';
 import { supabase } from '../lib/supabase';
@@ -16,7 +16,16 @@ function MainLayout(){
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((_event, session) => {
-      console.log('session user', session?.user)
+      
+      if(session){
+        setAuth(session.user)
+        router.replace('/(panel)/(tabs)/home/page')
+        return;
+      }
+
+      setAuth(null);
+      router.replace('/(auth)/signin/page')
+
     })
   },[])
 
@@ -34,7 +43,7 @@ function MainLayout(){
       />
 
       <Stack.Screen
-        name="(panel)/home/page"
+        name="(auth)/signin/page"
         options={{ headerShown: false }}
       />
 
