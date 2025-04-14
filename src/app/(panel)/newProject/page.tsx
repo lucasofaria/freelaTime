@@ -1,3 +1,4 @@
+import colors from '@/constants/colors';
 import { SafeAreaView, Text, StyleSheet } from 'react-native';
 
 export default function NewProject() {
@@ -14,6 +15,7 @@ const styles = StyleSheet.create({
   containe:{
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: colors.gray
   }
 })

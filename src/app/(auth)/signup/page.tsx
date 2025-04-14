@@ -35,7 +35,7 @@ export default function Signup() {
 
     Alert.alert('Cadastro realizado com sucesso!')
     setLoading(false);
-    router.replace('/')
+    router.replace('/(auth)/signin/page');
 
   }
 
@@ -50,6 +50,7 @@ export default function Signup() {
             <View>
               <TextInput
                 placeholder='Nome completo'
+                placeholderTextColor={colors.gray}
                 style={styles.input}
                 value={name}
                 onChangeText={setName}
@@ -59,6 +60,7 @@ export default function Signup() {
             <View>
               <TextInput
                 placeholder='E-mail'
+                placeholderTextColor={colors.gray}
                 style={styles.input}
                 value={email}
                 onChangeText={setEmail}
@@ -68,6 +70,7 @@ export default function Signup() {
             <View>
               <TextInput
                 placeholder='Senha'
+                placeholderTextColor={colors.gray}
                 style={styles.input}
                 value={password}
                 onChangeText={setPassword}
