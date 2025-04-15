@@ -6,7 +6,7 @@ import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Alert, Image } 
 import Header from '@/components/Header';
 
 export default function Profile() {
-  const { setAuth, user } = useAuth();
+  const { setAuth, user, getUserName } = useAuth();
   
   async function handleSignout() {
     const { error } = await supabase.auth.signOut();
@@ -32,7 +32,7 @@ export default function Profile() {
       </View>
       
       <Text style={styles.textName}>
-        {user?.identities[0].identity_data?.name}
+        {getUserName()}
       </Text>
 
       <Text style={styles.textEmail}>

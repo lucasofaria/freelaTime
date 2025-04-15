@@ -4,6 +4,7 @@ import { createContext, useContext, useState } from "react";
 interface AuthContextProps {
   user: User | null;
   setAuth: (authUser: User | null) => void;
+  getUserName: () => string;
 }
 
 const AuthContext = createContext({} as AuthContextProps);
@@ -15,8 +16,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setUser(authUser);
   }
 
+  function getUserName(): string {
+    const name = user?.identities?.[0]?.identity_data?.name;
+    return name || "Usuário";
+  }
+
   return (
-    <AuthContext.Provider value={{ user, setAuth }}>
+    <AuthContext.Provider value={{ user, setAuth, getUserName }}>
       {children}
     </AuthContext.Provider>
   )
